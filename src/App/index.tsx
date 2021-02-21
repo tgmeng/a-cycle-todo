@@ -295,7 +295,7 @@ export function App(sources: AppSources): AppSinks {
   const initialTodoListFromStorage$ = sources.storage.local
     .getItem(StorageKey)
     .map((todoListStr: string) =>
-      (safeJSONParse(todoListStr) as TodoProps[]).map((todo) => ({
+      (safeJSONParse(todoListStr, []) as TodoProps[]).map((todo) => ({
         ...todo,
         editingTitle: "",
         isEditing: false,
@@ -334,7 +334,11 @@ export function App(sources: AppSources): AppSinks {
     }));
 
   const vdom$ = view(amendedState$);
-  const reducer$ = makeReducer$(actions, todoListSinks, initialTodoListFromStorage$);
+  const reducer$ = makeReducer$(
+    actions,
+    todoListSinks,
+    initialTodoListFromStorage$
+  );
 
   const storageRequest$ = amendedState$.compose(debounce(100)).map((state) => ({
     key: StorageKey,

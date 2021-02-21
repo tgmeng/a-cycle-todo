@@ -1,0 +1,42 @@
+{
+  "name": "a-cycle-todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@cycle/dom": "^22.8.0",
+    "@cycle/history": "^7.4.0",
+    "@cycle/isolate": "^5.2.0",
+    "@cycle/run": "^5.5.0",
+    "@cycle/state": "^1.4.0",
+    "@cycle/storage": "^5.1.2",
+    "html-webpack-plugin": "^5.0.0",
+    "todomvc-app-css": "^2.3.0",
+    "todomvc-common": "^1.0.5",
+    "xstream": "^11.14.0"
+  },
+  "scripts": {
+    "dev": "webpack serve --config ./webpack/webpack.config.dev.js",
+    "lint": "eslint . --cache --fix",
+    "pretest": "npm run lint",
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+    "posttest": "npm run format"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-const-enum": "^1.0.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.19.0",
+    "prettier": ">=2",
+    "style-loader": "^2.0.0",
+    "typescript": "^4.1.4",
+    "webpack": "^5.20.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  }
+}

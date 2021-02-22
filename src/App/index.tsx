@@ -295,7 +295,7 @@ export function App(sources: AppSources): AppSinks {
   const initialTodoListFromStorage$ = sources.storage.local
     .getItem(StorageKey)
     .map((todoListStr: string) =>
-      (safeJSONParse(todoListStr, []) as TodoProps[]).map((todo) => ({
+      ((safeJSONParse(todoListStr, []) as TodoProps[]) ?? []).map((todo) => ({
         ...todo,
         editingTitle: "",
         isEditing: false,
